@@ -1,0 +1,98 @@
+=> Data types
+number - string = number
+string + number = string
+true as 1 and false as 0
+so, 
+true + true = 2
+false - true = -1
+
+=> null vs undefined !!
+For example,
+    let var1 = null;
+    let var2;
+
+    now, var1 is null but var2's value is not initilizied yet. So, var2 is undefined.
+
+    typeof null is object -> you can say bug of javascript
+    typeof undefined is undefined itslef.
+
+=> What is NaN !!
+    - Not a number
+    - variable as a global scope
+    - function isNaN(variable) -> returns boolean(true/false)
+
+=> Difference between == and === 
+    == -> compare value irrespective of it's type
+    === -> compare value with respect to it's type
+
+=> 'debugger' keyword 
+    - will debug everything for you wherever you are in bug
+    - it will work in any browser 
+    - for example,
+        for(let i=1;i<=10;i++) {
+            debugger;  
+            console.log(i);
+        }
+      run above code in console of your favourite browser.
+
+=> anonymous function
+    - function without name 
+    - for example,
+        
+        //Below function has no name
+        let mySum = function(a,b) {
+            return a+b;
+        }
+
+        let sum1 = mySum(3,4);
+        let sum2 = mySum(5,-4);
+
+        console.log(sum1); //7
+        console.log(sum2); //1
+
+=> let vs const vs var
+    - var -> function scope
+      let & const -> block scope
+
+=>for in and for of loop
+    - For example,
+      
+      let myArray = ['a','b','c','d'];
+      
+      i) for(let index in myArray) {
+            console.log(index); 
+      }
+      //op - 0 1 2 3
+     
+     ii) for(let element in myArray) {
+            console.log(element);
+     }
+     //op - a b c d 
+
+    - in short,
+        for in returns index/position 
+        for of returns element at each position
+    
+
+//forEach loop
+    - can not use 'break' in forEach
+    - For example, 
+      
+      let myArray = new Array;
+      myArray = ['John', 'Bob', 'Tom', 'Sam'];
+  
+      //using normal function 
+      myArray.forEach(function(element,index,array) {
+          console.log(`At index ${index} -> ${element} available`);
+      });
+
+     //using fat arrow function
+     myArray.forEach((element,index,array) => {
+     console.log(`At index ${index} -> ${element} available`);
+     });
+      //op ->
+      $ node variable.js 
+      At index 0 -> John available
+      At index 1 -> Bob available
+      At index 2 -> Tom available
+      At index 3 -> Sam available
