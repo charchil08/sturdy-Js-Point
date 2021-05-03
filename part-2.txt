@@ -1,0 +1,62 @@
+Array methods -
+===============================================================================================
+.indexOf(string,starting index);
+.lastIndexOf(string, starting index)
+
+.includes(string) --> return true or false
+.find(datatype) --> return only 1 finded elements/return undefined if condition not satisfied
+.findIndex(datatype) -->return -1 if condition not satisfied/ return index of that 1 element
+------------>>>>All callback function args. --> currentElement, index, array, thisArgs
+
+to filter data in arrays -> filter() --> return arrays of satisfied elements
+
+.push() -> returns updated size of array and add element(s) at end of the array 
+.unshift() -> returns updated size of array and add element(s) at end of the array
+.pop() -> remove last element and returns it
+.shift() -> remove first element and return it
+
+.sort -> not works in numbers
+.splice()-> return deleted elements
+	.splice(starting index, 0/1, string to be updated)
+
+5:50:28
+.forEach() -> returns undefined
+.map()-> returns a new array 
+.reduce(accumulator, currentElement, index, array) --> return a single value as an output or convert 2D, 3D array into single 								           dimensional.
+===============================================================================================
+String methods
+===============================================================================================
+.indexOf()-> same as aaray
+.lastIndexOf()-> same as array
+
+length --> property
+
+.search(string)->returns index
+
+.slice(starting index, ending index) - returns new substring , in parameter end index is not included, you can give also negative index
+			    negative index start from ending charcter and starts with -1.
+
+.substring(starting index, ending index) - same as slice method but can not give negative index. if you give (8,-2) like this then it will returns a string of length 8 from starting.
+
+.substr(starting index, length) - same as slice method but length can not be negative so we can give negative value in starting index so it will returns a string from last charcter of given length. 
+
+.replace(searchFor string, replaceWith string) - returns new string with updated data.
+
+.charAt(index) - returns charcter at that index
+.charCodeAt(index) - returns UTF-16 code of charcter at that index
+
+.toLowerCase()
+.toUpperCase()
+
+.trim() -> remove more spaces from both end of a string.
+
+.split(symbol or charcter) -covert strings into an array
+===============================================================================================
+ARRAY DESTRUCTURING
+===============================================================================================
+
+font-awesome icon cheetsheet
+https://fontawesome.com/v4.7.0/cheatsheet/ 
+
+font awesome library link
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
