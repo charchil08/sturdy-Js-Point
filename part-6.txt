@@ -1,0 +1,5 @@
+Everthing in javascript is nothing but an object.
+
+Garbage collection & Remove Event Listeners
+-------------------------------------------
+

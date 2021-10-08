@@ -1,0 +1,84 @@
+Event Loop 
+-----------
+
+When js code executes, a global execution context is created and pushed the stack into gec.
+Js waits for none and executes code line by line until the end of code.
+
+so, js has nothing like timers or dom properties. These are the web APIs that provides facility,
+Object => window
+    setTimeout(),
+    DOM APIs,
+    fetch(),
+    console 
+        all are available in browser and we can use through the web APIs window object.
+
+Example
+__________
+
+console.log("Start");
+
+setTimeout(function() cbT{
+    console.log("Callback setTimeout");
+},5000);
+
+fetch("https://api.google.com/").then(function cbF() {
+    console.log("Callback fetch");
+});
+
+console.log("End");
+
+___________________________________________________________________
+
+O/P -
+Start
+End
+Callback fetch
+Callback setTimeout
+
+First it will executes console.log("Start")
+
+After that a setTimeout is created and timer of 5 seconds are given but js waits for none so, that web api will be stored inside callback register wth time of 5 seconds.
+
+After that fetch request is made to the google server and until that request resolved it also stored in callback register.
+
+After that console.log("End") will executes.
+
+Now comes the consept of callback queue and microtask queue.
+
+ ________________________________
+|                                |
+|________________________________|                              
+ Microtask Queue 
+
+
+ ________________________________
+|                                |
+|________________________________|                             
+ Callback Queue
+
+
+ (Event Loop)
+
+ ------
+ |    |
+ |    |
+ |    |
+ |    |
+ |    |
+ |    |
+ |    |
+ |    |
+ ------
+ Call Stack of Js
+
+Callback queue is used when settimeout or dom api is called and pushed into the callback queue.
+
+Microtask queue is same as callback queue but it has a higher priority.
+ now, fetch api and mutation ovserver are 2 things that is gone every time into microtask queue. Rest of all things goes into callback queue.
+
+What is the job of event loop ???
+it continuously watch over callstack, callback queue and microtask queue. whenever callstack is empty event loop will first watch over the microtask queue and transfer all the ask from it and after it goes to the callback queue and transfer all task from it one by one.
+
+Starvation
+----------
+When microtask queue has number of task and that task again creating another microtask then callback qqueue will never have a chance to executes their task. this is known as starvation.

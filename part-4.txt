@@ -1,0 +1,101 @@
+//Advanced JS
+
+=> Event Bubbling & Capturing (Event Listener 3rd args)
+    - child to parent (bottom to top) -> Bubbling phase
+
+    - Parent to child (top to bottom) -> Capturing phase
+    
+    - by default event bubbling is on
+    
+    - if we don't want anything bubbling/Capturing then we have to use like,
+        tag.addEventListner('click', (event) => {
+            .....some code...;
+            event.stopPropagation();
+        });
+
+    - if we want capturing first then , 
+        tag.addEventListner('click',functionCall, false); // false -> bubbling on   &   true -> capturing on
+
+=> Higher order & callback Function
+    - Function which takes function as an argument -> Higher order 
+    - Function which passes as an argument in Function -> callback
+
+=> Hoisting 
+    - we have 2 phases i)creation & ii)execution phase
+    - In hoisting variables and functions are moved on the top in the code.
+    - After ES6, hoisting is avoided by using 'let' and 'const' keyword.
+
+=> Lexical Scoping
+    - Inner function can execute variables that have both inner & outer scopes but outer function can not. -> Lexical scoping
+    - For example,
+        let a = 1;
+        function outer() {
+            let b = 2;
+
+            function inner() {
+                let c = 3;
+            }
+        }
+
+    - a -> global scope -> both inner & outer can excute
+      b -> local scope  -> both inner & outer can excute because its defined in outer function
+      c -> local scope  -> only inner can exrcute because its defined in inner function
+
+=> closure
+    - Function along with their Lexical scope bundled together forms a closure
+    - For example, 
+        function x() {
+            let a = 8;
+            function y() {
+                console.log(a);
+            }
+            y(); //calling function y
+        }
+
+        x(); //calling function x
+
+        //op - 8 
+
+    - example 2,
+        function x() {
+            let a = 8;
+            function y() {
+                console.log(a);
+            }
+            return y; //returning function y
+        }
+        let z = x(); //calling x so it will retrun function y
+        /*
+            After 100's lines of code
+        */
+        z(); //calling function z
+
+        //op - 8
+    so, even after lexical scope of a is vanished, still z remember refernce of a. //remember refernce
+
+=> Functions 
+    i) Function statement or function declaration
+        function fun() {
+            console.log("This type of function is known as function statement or declaration.");
+        }
+    
+    ii) Function expression
+        let x = function fun() {
+            console.log("This type of function is known as function expression where function kinda work as a variable.");
+            console.log("without name also expression can be made such as here if we don't give name 'fun' it will be anonomys function expression.");
+        }
+
+    iii) parameter - At time of defining function the value we pass to function known as parameter.
+
+    iv) arguments - At time of calling function the value we pass to function known as arguments.
+
+    v) First class function - In JS, we can pass a function as parameter or as an arguments this property of JS is known as first class function.
+        For example,
+        //As an Parameter
+        function fun(foo) {
+            console.log(foo);
+        } 
+
+        let x = fun(function f() {
+            console.log('function as an argument');
+        }); 
